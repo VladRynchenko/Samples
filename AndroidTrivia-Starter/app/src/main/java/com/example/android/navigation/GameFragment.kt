@@ -58,7 +58,6 @@ class GameFragment : Fragment() {
     )
 
 
-
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
@@ -99,10 +98,10 @@ class GameFragment : Fragment() {
                         setQuestion()
                         binding.invalidateAll()
                     } else {
-                        findNavController().navigate(R.id.action_gameFragment_to_gameWonFragment)
+                        findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameWonFragment(numQuestions, questionIndex))
                     }
                 } else {
-                    findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+                    findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameOverFragment())
                 }
             }
         }
@@ -127,3 +126,15 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 }
+//
+//class GameFragmentDirections() {
+//    companion object {
+//        fun actionGameFragmentToGameWonFragment() {
+//
+//        }
+//
+//        fun actionGameFragmentToGameOverFragment(){
+//
+//        }
+//    }
+//}
